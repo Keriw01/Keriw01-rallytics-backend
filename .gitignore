@@ -1,0 +1,8 @@
+node_modules
+build
+npm-debug.log
+.env.prod
+.env.dev
+.DS_Store
+service_account_key.dev.json
+service_account_key.prod.json
