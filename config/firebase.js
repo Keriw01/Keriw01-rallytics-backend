@@ -1,24 +1,17 @@
 const admin = require("firebase-admin");
+const { environment } = require("./environment");
 
-if (!admin.apps.length) {
-  const serviceAccountBase64 = process.env.FIREBASE_SERVICE_ACCOUNT;
-  if (!serviceAccountBase64) {
-    throw new Error("FIREBASE_SERVICE_ACCOUNT environment variable not set.");
-  }
+const serviceAccountPath =
+  environment === "production"
+    ? "../service_account_key.prod.json"
+    : "../service_account_key.dev.json";
+const serviceAccount = require(serviceAccountPath);
 
-  const serviceAccountJson = Buffer.from(
-    serviceAccountBase64,
-    "base64"
-  ).toString("utf-8");
-  const serviceAccount = JSON.parse(serviceAccountJson);
-
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-
-  console.log("Firebase Admin SDK successfully connected.");
-}
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 const db = admin.firestore();
+console.log(`Firebase Admin SDK connected for environment: ${environment}.`);
 
 module.exports = { db, FieldValue: admin.firestore.FieldValue };
