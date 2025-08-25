@@ -62,7 +62,6 @@ async function fetchAndRewriteNews() {
         const responseJson = JSON.parse(cleanedText);
 
         rewrittenArticles.push({
-          originalUrl: article.url,
           rewrittenTitle: responseJson.newTitle,
           rewrittenContent: responseJson.newContent,
         });
