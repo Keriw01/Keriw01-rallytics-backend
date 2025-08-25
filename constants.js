@@ -1,7 +1,7 @@
 module.exports = {
   FAST_INTERVAL_MS: 5 * 60 * 1000, // 5 minutes (when there are matches)
   SLOW_INTERVAL_MS: 10 * 60 * 1000, // 10 minutes (when there are no matches)
-  NEWS_CRON_SCHEDULE: "* * * * *",
+  NEWS_CRON_SCHEDULE: "10 */4 * * *", // At minute 10 past every 4th hour news articles task
   NEWS_CRON_TIMEZONE: "Europe/Warsaw",
   NEWS_REWRITE_PROMPT: `
     Jesteś redaktorem sportowym. Otrzymałeś artykuł o tenisie. Twoim zadaniem jest napisanie go od nowa.

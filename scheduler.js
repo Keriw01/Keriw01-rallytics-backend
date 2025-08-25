@@ -62,7 +62,9 @@ function start() {
   cron.schedule(NEWS_CRON_SCHEDULE, runNewsCycle, {
     timezone: NEWS_CRON_TIMEZONE,
   });
-  console.log(`News cron job scheduled with pattern: "${NEWS_CRON_SCHEDULE}"`);
+  console.log(
+    `News Articles cron job scheduled with pattern: "${NEWS_CRON_SCHEDULE}"`
+  );
 }
 
 module.exports = { start };
