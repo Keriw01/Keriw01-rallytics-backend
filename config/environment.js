@@ -3,7 +3,7 @@ require("dotenv").config({
 });
 
 const environment = process.env.NODE_ENV || "development";
-console.log(`Run in the environment: ${environment}`);
+console.log(`Run in the environment: ${environment}.`);
 
 module.exports = {
   environment,
