@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "NODE_ENV=development node index.js",
-    "start:prod": "NODE_ENV=production node index.js",
+    "start:worker:dev": "cross-env NODE_ENV=development node index.js",
+    "start:worker:prod": "cross-env NODE_ENV=production node index.js",
+    "start:api:dev": "cross-env NODE_ENV=development node api.js",
+    "start:api:prod": "cross-env NODE_ENV=production node api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,8 +17,11 @@
     "@google/genai": "^1.15.0",
     "apify-client": "^2.15.1",
     "axios": "^1.11.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
+    "express": "^5.1.0",
     "firebase-admin": "^13.4.0",
-    "node-cron": "^4.2.1"
+    "node-cron": "^4.2.1",
+    "stripe": "^18.5.0"
   }
 }
